@@ -136,5 +136,6 @@ def main():
 
 
 if __name__ == "__main__":
-    doctest.testmod(raise_on_error=True)
+    doctest.testmod()
+else:
     main()
