@@ -1,6 +1,9 @@
 # workshop
 # TodoApp
 
+[![Pylint](https://github.com/amytnyk/workshop/actions/workflows/pylint.yml/badge.svg)](https://github.com/amytnyk/workshop/actions/workflows/pylint.yml)
+[![Pylint](https://github.com/amytnyk/workshop/actions/workflows/pylint.yml/badge.svg)](https://github.com/amytnyk/workshop/actions/workflows/tests.yml)
+
 Simple app to manage your deadlines.
 
 Type ```python3 main.py``` to run.
