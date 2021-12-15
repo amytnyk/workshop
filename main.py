@@ -1,3 +1,6 @@
+"""
+This module is the termial realiazation of todoist.
+"""
 import os
 from typing import Dict, List
 from datetime import datetime
@@ -7,18 +10,28 @@ cache_file = 'cache.csv'
 
 
 def add_task(tasks: Tasks, strdate: str, name: str, priority: int):
+    """
+    This finction adds the new task.
+    """
     if strdate not in tasks:
         tasks[strdate] = []
     tasks[strdate].insert(priority, name)
 
 
 def delete_task(tasks: Tasks, strdate: str, name: str):
+    """
+    This function deletes the existing task
+    """
     tasks[strdate].remove(name)
     if len(tasks[strdate]) == 0:
         del tasks[strdate]
 
 
 def print_tasks(tasks: Tasks, strdate: str):
+    """
+    This finction print all your tasks is there is no tasks, prints
+    "You have no tasks for today"
+    """
     if strdate not in tasks:
         print("You have no tasks for today")
     else:
@@ -42,16 +55,25 @@ def read_tasks() -> Tasks:
 
 
 def write_tasks(tasks: Tasks):
+    """
+    Writes tasks to the file.
+    """
     with open(cache_file, 'w') as file:
         for date in tasks:
             file.write(f"{date}:{';'.join(tasks[date])}\n")
 
 
 def today_date() -> str:
+    """
+    Prints date.
+    """
     return datetime.today().strftime('%d-%m-%Y')
 
 
 def print_help():
+    """
+    Prints help.
+    """
     print("""You can use commands:
 help - display available commands
 todo - display tasks for today
@@ -60,6 +82,9 @@ delete_task - mark task as done and delete it
 exit - to exit""")
 
 def main():
+    """
+    The main function.
+    """
     tasks = read_tasks()
     print_tasks(tasks, today_date())
     print("Type help for available commands")
