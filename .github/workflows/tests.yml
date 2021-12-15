@@ -15,4 +15,4 @@ jobs:
         python -m unittest
     - name: Doctest
       run: |
-        python lib/multiplier.py -v
+        python main.py -v
