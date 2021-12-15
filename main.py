@@ -1,3 +1,6 @@
+"""
+TodoApp module
+"""
 import doctest
 import os
 from typing import Dict, List
@@ -118,4 +121,5 @@ def main():
 
 
 if __name__ == "__main__":
+    doctest.testmod(raise_on_error=True)
     main()
