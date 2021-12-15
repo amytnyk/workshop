@@ -1,8 +1,11 @@
 # workshop
 # TodoApp
 
-Functions:
+Simple app to manage your deadlines.
 
+Type ```python3 main.py``` to run.
+
+Functions:
 ```
 add_task(tasks: Tasks, strdate: str, name: str, priority: int) # Adds task
 delete_task(tasks: Tasks, strdate: str, name: str) # Deletes task
@@ -13,4 +16,3 @@ today_date() -> str # Returns today date
 print_help() # Prints help
 main() # main loop
 ```
-Type ```python3 main.py``` to run TodoApp.
