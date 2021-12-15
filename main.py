@@ -7,7 +7,7 @@ from typing import Dict, List
 from datetime import datetime
 
 Tasks = Dict[str, List[str]]
-cache_file = 'cache.csv'
+CACHE_FILE = 'cache.csv'
 
 
 def add_task(tasks: Tasks, strdate: str, name: str, priority: int):
@@ -52,11 +52,14 @@ def print_tasks(tasks: Tasks, strdate: str):
 
 
 def read_tasks() -> Tasks:
-    if not os.path.isfile(cache_file):
-        return dict()
-    with open(cache_file, 'r') as file:
+    """
+    Reads tasks
+    """
+    if not os.path.isfile(CACHE_FILE):
+        return {}
+    with open(CACHE_FILE, 'r', encoding="utf-8") as file:
         lines = file.read().split('\n')[:-1]
-        tasks = dict()
+        tasks = {}
         for line in lines:
             sep_idx = line.index(':')
             date = line[:sep_idx]
@@ -66,16 +69,25 @@ def read_tasks() -> Tasks:
 
 
 def write_tasks(tasks: Tasks):
-    with open(cache_file, 'w') as file:
+    """
+    Writes tasks
+    """
+    with open(CACHE_FILE, 'w', encoding="utf-8") as file:
         for date in tasks:
             file.write(f"{date}:{';'.join(tasks[date])}\n")
 
 
 def today_date() -> str:
+    """
+    Returns today date
+    """
     return datetime.today().strftime('%d-%m-%Y')
 
 
 def print_help():
+    """
+    Prints help
+    """
     print("""You can use commands:
 help - display available commands
 todo - display tasks for today
@@ -85,6 +97,9 @@ exit - to exit""")
 
 
 def main():
+    """
+    Main app loop
+    """
     tasks = read_tasks()
     print_tasks(tasks, today_date())
     print("Type help for available commands")
