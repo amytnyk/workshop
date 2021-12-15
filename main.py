@@ -95,5 +95,5 @@ def main():
     write_tasks(tasks)
 
 
-if __name__ == "main":
+if __name__ == "__main__":
     main()
